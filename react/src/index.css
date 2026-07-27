@@ -673,6 +673,344 @@ table > tbody > tr > td {
     stroke: currentColor;
 }
 
+/* Equipment detail page */
+.detail-page {
+    max-width: 960px;
+    margin: 0 auto;
+}
+.detail-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    padding: 0;
+    margin-bottom: 16px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    cursor: pointer;
+}
+.detail-back:hover { color: var(--text-primary); }
+.detail-back svg { width: 15px; height: 15px; stroke: currentColor; }
+
+.detail-card {
+    display: flex;
+    gap: 32px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+}
+.detail-media {
+    width: 320px;
+    flex-shrink: 0;
+    aspect-ratio: 3 / 4;
+    background: var(--surface-1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+.detail-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+.detail-media-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+}
+.detail-media-placeholder svg { width: 56px; height: 56px; stroke: currentColor; }
+
+.detail-info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+.detail-header {
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 16px;
+}
+.detail-eyebrow {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-top: 8px;
+}
+.detail-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 4px 0 8px;
+}
+.detail-price {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+}
+.detail-price span {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text-muted);
+}
+.detail-description {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0 0 16px;
+}
+.detail-specs {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+.detail-spec-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 9px 14px;
+    font-size: 13.5px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+}
+.detail-spec-row:nth-child(even) { background: var(--surface-1); }
+.detail-spec-row:last-child { border-bottom: none; }
+.detail-spec-label { color: var(--text-secondary); }
+.detail-spec-value { font-weight: 600; color: var(--text-primary); }
+.detail-notes {
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    background: var(--surface-1);
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin: 0 0 16px;
+}
+.detail-cta {
+    margin-top: auto;
+    align-self: flex-start;
+    padding: 10px 22px !important;
+    font-size: 14px !important;
+    transition: background 0.2s;
+}
+.detail-cta-added {
+    background: var(--success) !important;
+    border-color: var(--success) !important;
+}
+.detail-empty {
+    max-width: 480px;
+    margin: 60px auto;
+    text-align: center;
+}
+
+/* Add-items compact form card */
+.form-card {
+    max-width: 720px;
+    margin: 0 auto;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 28px 28px;
+}
+.form-card-title {
+    font-size: 19px;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+.form-card-subtitle {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+.form-card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 16px;
+}
+.form-card-field.full { grid-column: 1 / -1; }
+.form-card-field label {
+    display: block;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 5px;
+}
+.form-card-field input,
+.form-card-field select,
+.form-card-field textarea {
+    margin-bottom: 0;
+    padding: 9px 12px;
+}
+.form-card-field textarea {
+    min-height: 72px;
+    resize: vertical;
+}
+.form-card-sizes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.form-card-size-option {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+.form-card-size-option input { display: none; }
+.form-card-size-option.selected {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--on-accent);
+}
+.form-card-actions {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 4px;
+}
+
+/* Dashboard */
+.dash {
+    max-width: 1080px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.dash-hero {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px 26px;
+}
+.dash-hero-mark {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.dash-hero-mark svg { width: 28px; height: 28px; stroke: var(--on-accent); }
+.dash-hero-date {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+.dash-hero-title { font-size: 22px; font-weight: 600; margin: 0; }
+.dash-hero-sub { font-size: 13.5px; color: var(--text-secondary); margin: 4px 0 0; }
+
+.dash-kpis {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+}
+.dash-kpi {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 16px;
+}
+.dash-kpi-label {
+    font-size: 11.5px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.dash-kpi-value {
+    font-size: 26px;
+    font-weight: 700;
+    margin-top: 6px;
+    font-variant-numeric: tabular-nums;
+}
+.dash-kpi-success { color: var(--success); }
+.dash-kpi-danger { color: var(--danger); }
+
+.dash-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+    gap: 16px;
+    align-items: start;
+}
+.dash-panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+}
+.dash-panel-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border);
+}
+.dash-panel-head h2 { font-size: 15px; font-weight: 600; margin: 0; }
+.dash-panel-link {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+}
+.dash-empty {
+    padding: 24px 18px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 13.5px;
+    margin: 0;
+}
+.dash-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--border);
+}
+.dash-row:last-child { border-bottom: none; }
+.dash-row-name { font-size: 13.5px; font-weight: 600; }
+.dash-row-meta { font-size: 12px; color: var(--text-secondary); margin-top: 1px; }
+
+.dash-side { display: flex; flex-direction: column; gap: 16px; }
+.dash-action {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 18px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s;
+}
+.dash-action:last-child { border-bottom: none; }
+.dash-action:hover { background: var(--surface-1); color: var(--text-primary); }
+.dash-action svg { width: 17px; height: 17px; stroke: var(--accent); flex-shrink: 0; }
+
 /* NavBar */
 #btnNav{
     background: var(--accent);
